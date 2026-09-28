@@ -5,15 +5,29 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class IngredientTest {
-    @Test void constructor_shouldSetAllFields() {
-        IngredientType expectedType = IngredientType.FILLING;
-        String expectedName = "cutlet";
-        float expectedPrice = 100f;
 
-        Ingredient ingredient = new Ingredient(expectedType, expectedName, expectedPrice);
+    private static final IngredientType TYPE = IngredientType.FILLING;
+    private static final String NAME = "cutlet";
+    private static final float PRICE = 100f;
 
-        assertEquals(expectedType, ingredient.getType());
-        assertEquals(expectedName, ingredient.getName());
-        assertEquals(expectedPrice, ingredient.getPrice());
+    @Test
+    void constructor_shouldSetType() {
+        Ingredient ingredient = new Ingredient(TYPE, NAME, PRICE);
+
+        assertEquals(TYPE, ingredient.getType());
+    }
+
+    @Test
+    void constructor_shouldSetName() {
+        Ingredient ingredient = new Ingredient(TYPE, NAME, PRICE);
+
+        assertEquals(NAME, ingredient.getName());
+    }
+
+    @Test
+    void constructor_shouldSetPrice() {
+        Ingredient ingredient = new Ingredient(TYPE, NAME, PRICE);
+
+        assertEquals(PRICE, ingredient.getPrice());
     }
 }
